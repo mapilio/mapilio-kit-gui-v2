@@ -1,0 +1,383 @@
+@charset "UTF-8";
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.top {
+  height: 531px;
+}
+.top .GUI {
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.top .GUI a {
+  color: #0056f1;
+}
+.top .GUI_svg {
+  width: 276px;
+  top: 120px;
+  position: absolute;
+  left: 70px;
+}
+.top .GUI_left {
+  width: 250px;
+  height: 100%;
+  background-color: #ececec;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.top .GUI_left_footer {
+  margin-top: auto;
+}
+.top .GUI_left_footer img {
+  height: 26px;
+}
+.top .GUI_left_footer p {
+  font-size: 12px;
+  color: #c2c2c2;
+  margin-top: 10px;
+}
+.top .GUI_left_sections {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.top .GUI_left_sections input {
+  border: none;
+  background-color: transparent;
+  padding: 6px 18px;
+  display: block;
+  color: #808080;
+  font-size: 20px;
+  font-weight: 500;
+  opacity: 0.6;
+  border-top: 1px solid #c2c2c2;
+  border-bottom: 1px solid #c2c2c2;
+}
+.top .GUI_left_sections input:first-child {
+  border-top: none;
+}
+.top .GUI_left_sections input:last-child {
+  border-bottom: none;
+}
+.top .GUI .log_page {
+  padding: 20px 40px 85px 105px;
+}
+.top .GUI_right {
+  background-color: #f9f9f9;
+  padding: 50px;
+  flex: 1;
+}
+.top .GUI_right_login {
+  margin-top: 35px;
+}
+.top .GUI_right_login h1 {
+  font-size: 29px;
+  font-weight: 700;
+}
+.top .GUI_right_input {
+  margin-top: 25px;
+}
+.top .GUI_right_input div {
+  display: flex;
+  justify-content: space-between;
+}
+.top .GUI_right_input div a {
+  font-size: 14px;
+  color: #b1b7bf;
+}
+.top .GUI_right_input label {
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+.top .GUI_right_input input {
+  width: 100%;
+  height: 44px;
+  border: 0;
+  padding: 0 20px;
+  border-radius: 22px;
+}
+.top .GUI_right_input input::-moz-placeholder {
+  color: #b1b7bf;
+}
+.top .GUI_right_input input::placeholder {
+  color: #b1b7bf;
+}
+.top .GUI_right_input input:focus {
+  outline: none;
+}
+.top .GUI_right_login_button {
+  background-color: #0056f1;
+  border-radius: 18px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  width: 100px;
+  height: 36px;
+  margin-top: 40px;
+  margin-left: auto;
+}
+.top .GUI_right_signUp {
+  text-align: center;
+  margin-top: 35px;
+}
+.top .GUI_right_kitUploader h1 {
+  font-size: 22px;
+  font-weight: 700;
+}
+.top .GUI_right_kitUploader p {
+  font-size: 15px;
+  margin-top: 5px;
+  color: #191919;
+}
+.top .GUI_right_user_kitUploader {
+  max-width: 300px;
+  margin: auto;
+  margin-top: 25px;
+}
+.top .GUI_right_user_kitUploader a {
+  display: flex;
+  align-items: center;
+  color: black;
+  font-weight: 500;
+}
+.top .GUI_right_user_kitUploader a:hover {
+  box-shadow: none;
+}
+.top .GUI_right_user_kitUploader_text {
+  flex: 1;
+}
+.top .GUI_right_user_kitUploader .dropdown-item img {
+  margin-right: 10px;
+}
+.top .GUI_right_kitUploading {
+  margin-top: 30px;
+}
+.top .GUI_right_kitUploading h2 {
+  font-size: 17px;
+  font-weight: 600;
+}
+.top .GUI_right_kitUploading_imgArea {
+  padding: 10px;
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  height: 225px;
+  overflow: scroll;
+  flex-direction: column;
+}
+.top .GUI_right_kitUploading_imgArea span {
+  font-size: 14px;
+}
+.top .GUI_right_kitUploading_imgArea button img {
+  width: 21px;
+  height: 21px;
+}
+.top .GUI_right_kitUploader_download button {
+  margin-top: 30px;
+  width: 100%;
+  height: 190px;
+  background-color: white;
+  border: 1px dotted #bfbfbf;
+  border-radius: 16px;
+}
+.top .GUI_right_kitUploader_download button .upload_text {
+  margin-top: 20px;
+  font-size: 17px;
+  font-weight: 500;
+}
+.top .GUI_right_kitUploader_download button .upload_text span {
+  color: #0056f1;
+  text-decoration: underline;
+}
+.top .GUI_right_kitUploader_download button p {
+  color: #b1b7bf;
+  margin-top: 10px;
+}
+.top .GUI_right_uploader h1 {
+  font-size: 22px;
+  font-weight: 700;
+}
+.top .GUI_right_uploader span {
+  margin-left: 10px;
+  font-size: 18px;
+  color: #191919;
+}
+.top .GUI_right_uploader p {
+  color: #212121;
+}
+.top .GUI_right_licence_area {
+  margin-top: 50px;
+}
+.top .GUI_right_licence_area h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #191919;
+}
+.top .GUI_right_licence_area h2 span {
+  font-size: 16px;
+  color: #b1b7bf;
+}
+.top .GUI_right_licence_area h2 a {
+  font-weight: 400;
+}
+.top .GUI_right_header h1 {
+  font-size: 22px;
+  font-weight: bold;
+}
+.top .GUI_right_help {
+  margin-top: 25px;
+}
+.top .GUI_right_help_text {
+  margin-top: 30px;
+}
+.top .GUI_right_help_text:first-child {
+  margin-top: 0;
+}
+.top .GUI_right_help_text h3 {
+  font-size: 16px;
+  font-weight: normal;
+}
+.top .GUI_right_kitUpload_fail {
+  margin-top: 15px;
+}
+.top .GUI_right_kitUpload_fail_imgArea {
+  padding: 10px;
+  background-color: #fee8eb;
+  border: 1px solid #ea1b2b;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.top .GUI_right_kitUpload_fail_imgArea span {
+  font-size: 14px;
+  color: #ea1b2b;
+}
+.top .GUI_right_kitUpload_fail_imgArea button img {
+  width: 21px;
+  height: 21px;
+}
+.top .GUI_right_uploadedImage h2 {
+  width: 320px;
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 30px;
+  text-align: left;
+}
+.top .GUI_right_uploadedImage h2 img {
+  margin-right: 10px;
+}
+.top .GUI_right_uploadedImage .thumblue {
+  width: 55px;
+}
+.top .GUI_right_uploadedImage, .top .GUI_right_uploadSucces {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.top .GUI_right_uploadedImage img, .top .GUI_right_uploadSucces img {
+  width: 205px;
+}
+.top .GUI_right_uploadedImage h2, .top .GUI_right_uploadSucces h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 30px;
+}
+.top .GUI_right_uploadedImage p, .top .GUI_right_uploadSucces p {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.top .GUI_right_uploadedImage_Done, .top .GUI_right_uploadSucces_Done {
+  background-color: #0056f1;
+  border-radius: 18px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  width: 100px;
+  height: 36px;
+  margin-top: 40px;
+}
+.top .GUI_right_uploadedImage_Done p, .top .GUI_right_uploadSucces_Done p {
+  margin: 0;
+}
+.top .GUI_user .dropdown-menu {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+}
+.top .GUI_user .dropdown-menu .dropdown-item {
+  padding: 10px 5px;
+  color: black;
+  font-weight: 500;
+  margin: 0;
+}
+.top .GUI_user .dropdown-menu .dropdown-item img {
+  margin-right: 5px;
+  width: 35px;
+  height: 35px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+.top .GUI_user a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  margin-bottom: 15px;
+  color: #191919;
+  font-weight: 600;
+}
+.top .GUI_user a:hover {
+  box-shadow: none;
+  color: white;
+}
+.top .GUI_user img {
+  width: 43px;
+  height: 43px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+.GUI_right_kitUploading_imgArea {
+  list-style: none;
+  padding: 0;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  width: 100%; /* Satır genişliği tamamen dolduruluyor */
+}
+.file-item span {
+  max-width: 280px; /* İsim için maksimum genişlik */
+  white-space: nowrap; /* İsim tek satırda gösterilsin ve taşmasın */
+  overflow: hidden; /* Taşan içeriği gizle */
+  text-overflow: ellipsis; /* Taşan kısmı üç nokta ile göster */
+}/*# sourceMappingURL=styles.css.map */

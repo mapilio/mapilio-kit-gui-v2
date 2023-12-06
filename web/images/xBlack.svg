@@ -1,0 +1,8 @@
+<svg id="Group_43712" data-name="Group 43712" xmlns="http://www.w3.org/2000/svg" width="16.824" height="16.824" viewBox="0 0 16.824 16.824">
+  <g id="Group_15874" data-name="Group 15874">
+    <g id="Group_108688" data-name="Group 108688">
+      <path id="Path_10381" data-name="Path 10381" d="M8.412,0A8.412,8.412,0,1,1,0,8.412,8.412,8.412,0,0,1,8.412,0Z" fill="#b1b7bf" opacity="0.5"/>
+      <path id="union" d="M4.415,9.689V5.522H.553a.553.553,0,1,1,0-1.106H4.415V.553a.553.553,0,1,1,1.106,0V4.415H9.689a.553.553,0,1,1,0,1.106H5.522V9.689a.553.553,0,1,1-1.106,0Z" transform="translate(8.412 1.17) rotate(45)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
