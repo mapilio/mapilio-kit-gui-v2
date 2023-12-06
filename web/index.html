@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="/eel.js"></script>
+    <link rel="stylesheet" href="bootstrap/bootstrap-grid.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap-reboot.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="styles/styles.css"/>
+    <title>GUI</title>
+</head>
+
+<body>
+<div class="top">
+
+    <div class="GUI" id="loginSection">
+        <img class="GUI_svg" src="images/mapilio.png" alt="">
+        <div class="GUI_left">
+            <div class="GUI_left_footer">
+                <div class="GUI_left_user"></div>
+                <img src="images/mapilioBetalogo.svg" alt="">
+                <p>© Mapilio. 2023. All rights reserved</p>
+            </div>
+        </div>
+        <div class="GUI_right log_page">
+            <div class="GUI_right_login">
+                <h1>Login</h1>
+                <form action="">
+                    <div class="GUI_right_input">
+                        <label for="email">Enter your email or username</label>
+                        <input id="Email" placeholder="Email *" type="text">
+
+                    </div>
+                    <div class="GUI_right_input">
+                        <div>
+                            <label for="password">Enter your password</label>
+                            <a href="#">Forgot Password</a>
+                        </div>
+                        <input id="password" placeholder="Password *" type="password">
+                    </div>
+                    <button type="button" class="GUI_right_login_button" onclick="validateLogin()">
+                        <p>Login</p>
+                    </button>
+
+                </form>
+                <div class="GUI_right_signUp">
+                    <p>Don't have an account yet? <a href="#"> Sign up here</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="GUI GUI_section" id="uploadSection" style="display: none;">
+        <div class="GUI_left">
+            <div class="GUI_left_sections">
+                <input type="button" name="upload_button" value="Upload" class="GUI_left_sections_button"
+                       onclick="showSection('uploadSection')">
+                <input type="button" name="about_button" value="About" class="GUI_left_sections_button"
+                       onclick="showSection('aboutSection')">
+                <input type="button" name="help_button" value="Help" class="GUI_left_sections_button"
+                       onclick="showSection('helpSection')">
+            </div>
+            <div class="GUI_left_footer">
+                <div class="GUI_user dropdown dropup">
+                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <img src="images/manCircleImg.svg" alt="">
+                        John Doe
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">
+                            <img src="images/manCircleImg.svg" alt="">
+                            John Doe
+                        </a>
+                        <!-- Logout Button -->
+                        <button class="dropdown-item logout-button" onclick="logout()">Logout</button>
+                    </div>
+                </div>
+                <img src="images/mapilioBetalogo.svg" alt="">
+                <p>© Mapilio. 2023. All rights reserved</p>
+            </div>
+
+        </div>
+        <div class="GUI_right">
+            <div class="GUI_right_kitUploader">
+                <h1>
+                    Mapilio Kit Uploader
+                </h1>
+                <p>
+                    Image GPS and capture time are minimally required to upload images to Mapilio.
+                </p>
+            </div>
+            <div class="GUI_right_user_kitUploader dropdown">
+                <a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <img src="images/manCircleImg.svg" alt="">
+                    <div class="GUI_right_user_kitUploader_text d-flex flex-column align-items-start ml-2">
+                        <div>
+                            JonhDoe
+                        </div>
+                        <p class="text-primary">Organization</p>
+                    </div>
+                </a>
+                <div class="dropdown-menu w-100 mt-3">
+                    <a class="dropdown-item" href="#">
+                        <img src="images/manCircleImg.svg" alt="">
+                        John Doe
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <img src="images/wordCircle.svg" alt="">
+                        City Map Issue
+                    </a>
+                </div>
+            </div>
+
+            <div id="fileUploadArea" class="GUI_right_kitUploader_download" ondragover="event.preventDefault()"
+                 ondrop="handleDrop(event)">
+                <button onclick="handleFileSelect()">
+                    <img src="images/uploadIcon.svg" alt="">
+                    <div class="upload_text">
+                        Drag & Drop files or <span>Browse</span>
+                    </div>
+                    <p>Input video path you want to process</p>
+                </button>
+
+            </div>
+
+
+            <!--                <div id="fileUploadArea" class="GUI_right_kitUploader_download" ondragover="event.preventDefault()" ondrop="handleDrop(event)">-->
+            <!--                    <button onclick="document.getElementById('GUI_file').click()">-->
+            <!--                        <img src="images/uploadIcon.svg" alt="">-->
+            <!--                        <div class="upload_text">-->
+            <!--                            Drag & Drop files or <span>Browse</span>-->
+            <!--                        </div>-->
+            <!--                        <p>Input video path you want to process</p>-->
+            <!--                    </button>-->
+            <!--                    <input id="GUI_file" type="file" multiple onchange="handleFileSelect()" style="display: none;">-->
+            <!--                </div>-->
+
+
+            <div class="GUI_right_kitUpload_fail" id="uploadFail" style="display: none;">
+                <div class="GUI_right_kitUpload_fail_imgArea">
+                    <div>
+                        <img src="images/failIcon.svg" alt="">
+                        <span>This folder does not contain any Images or Video</span>
+                    </div>
+                    <button class="border-0 bg-transparent" onclick="clearUploadFailMessage()">
+                        <img src="images/xWhite.svg" alt="">
+                    </button>
+                </div>
+            </div>
+
+            <div class="GUI_right_kitUploading" id="uploadingSection" style="display: none;">
+                <h2>Uploading...</h2>
+                <ul id="uploadList" class="GUI_right_kitUploading_imgArea">
+                    <!-- JavaScript ile yüklenen dosya bilgileri buraya eklenecek -->
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="GUI GUI_section" id="aboutSection" style="display: none;">
+        <div class="GUI_left">
+            <div class="GUI_left_sections">
+                <input type="button" name="upload_button" value="Upload" class="GUI_left_sections_button"
+                       onclick="showSection('uploadSection')">
+                <input type="button" name="about_button" value="About" class="GUI_left_sections_button"
+                       onclick="showSection('aboutSection')">
+                <input type="button" name="help_button" value="Help" class="GUI_left_sections_button"
+                       onclick="showSection('helpSection')">
+            </div>
+            <div class="GUI_left_footer">
+                <div class="GUI_user dropdown dropup">
+                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <img src="images/manCircleImg.svg" alt="">
+                        John Doe
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">
+                            <img src="images/manCircleImg.svg" alt="">
+                            John Doe
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <img src="images/wordCircle.svg" alt="">
+                            City Map Issue
+                        </a>
+                        <!-- Logout Button -->
+                        <button class="dropdown-item logout-button" onclick="logout()">Logout</button>
+                    </div>
+                </div>
+                <img src="images/mapilioBetalogo.svg" alt="">
+                <p>© Mapilio. 2023. All rights reserved</p>
+            </div>
+        </div>
+        <div class="GUI_right">
+            <div class="GUI_right_uploader">
+                <div class="d-flex">
+                    <h1>
+                        Mapilio Kit Uploader 0.90-Beta
+                    </h1>
+                    <span>| 2022</span>
+                </div>
+                <p>
+                    Application to Upload data to Mapilio App
+                </p>
+                <a href="#">https://mapilio.com/</a>
+            </div>
+            <div class="GUI_right_licence_area">
+                <h2>License : <span>GNU</span></h2>
+                <h2>Developers : <a href="#">https://github.com/mapilio</a></h2>
+            </div>
+
+        </div>
+    </div>
+    <div class="GUI GUI_section" id="helpSection" style="display: none;">
+        <div class="GUI_left">
+            <div class="GUI_left_sections">
+                <input type="button" name="upload_button" value="Upload" class="GUI_left_sections_button"
+                       onclick="showSection('uploadSection')">
+                <input type="button" name="about_button" value="About" class="GUI_left_sections_button"
+                       onclick="showSection('aboutSection')">
+                <input type="button" name="help_button" value="Help" class="GUI_left_sections_button"
+                       onclick="showSection('helpSection')">
+            </div>
+            <div class="GUI_left_footer">
+                <div class="GUI_user dropdown dropup">
+                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <img src="images/manCircleImg.svg" alt="">
+                        John Doe
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">
+                            <img src="images/manCircleImg.svg" alt="">
+                            John Doe
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <img src="images/wordCircle.svg" alt="">
+                            City Map Issue
+                        </a>
+                        <!-- Logout Button -->
+                        <button class="dropdown-item logout-button" onclick="logout()">Logout</button>
+                    </div>
+                </div>
+                <img src="images/mapilioBetalogo.svg" alt="">
+                <p>© Mapilio. 2023. All rights reserved</p>
+            </div>
+        </div>
+        <div class="GUI_right">
+            <div class="GUI_right_header">
+                <h1>
+                    Mapilio Help
+                </h1>
+            </div>
+            <div class="GUI_right_help">
+                <div class="GUI_right_help_text">
+                    <h3>Help and Documentation:</h3>
+                    <a href="#">https://help.mapilio.com/</a>
+                </div>
+                <div class="GUI_right_help_text">
+                    <h3>Learn more about Capture tools:</h3>
+                    <a href="#">https://help.mapilio.com/capture_tools</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="GUI GUI_section" style="display: none;">
+        <div class="GUI_left">
+            <div class="GUI_left_sections">
+                <a href="#">Upload</a>
+                <a href="#">About</a>
+                <a href="#">Help</a>
+            </div>
+            <div class="GUI_left_footer">
+                <div class="GUI_user dropdown dropup">
+                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <img src="images/manCircleImg.svg" alt="">
+                        John Doe
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">
+                            <img src="images/manCircleImg.svg" alt="">
+                            John Doe
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <img src="images/wordCircle.svg" alt="">
+                            City Map Issue
+                        </a>
+                        <!-- Logout Button -->
+                        <button class="dropdown-item logout-button" onclick="logout()">Logout</button>
+                    </div>
+                </div>
+                <img src="images/mapilioBetalogo.svg" alt="">
+                <p>© Mapilio. 2023. All rights reserved</p>
+            </div>
+        </div>
+        <div class="GUI_right">
+            <div class="GUI_right_kitUploader">
+                <h1>
+                    Mapilio Kit Uploader
+                </h1>
+                <p>
+                    Image GPS and capture time are minimally required to upload images to Mapilio.
+                </p>
+            </div>
+            <div class="GUI_right_kitUploading">
+                <h2>Uploading...</h2>
+                <div class="GUI_right_kitUploading_imgArea">
+                    <span>image001234.mp4</span>
+                    <button class="border-0 bg-transparent">
+                        <img src="images/xBlack.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="GUI GUI_section" style="display: none;">
+        <div class="GUI_left">
+            <div class="GUI_left_sections">
+                <a href="#">Upload</a>
+                <a href="#">About</a>
+                <a href="#">Help</a>
+            </div>
+            <div class="GUI_left_footer">
+                <div class="GUI_user dropdown dropup">
+                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <img src="images/manCircleImg.svg" alt="">
+                        John Doe
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">
+                            <img src="images/manCircleImg.svg" alt="">
+                            John Doe
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <img src="images/wordCircle.svg" alt="">
+                            City Map Issue
+                        </a>
+                        <!-- Logout Button -->
+                        <button class="dropdown-item logout-button" onclick="logout()">Logout</button>
+                    </div>
+                </div>
+                <img src="images/mapilioBetalogo.svg" alt="">
+                <p>© Mapilio. 2023. All rights reserved</p>
+            </div>
+        </div>
+        <div class="GUI_right">
+            <div class="GUI_right_kitUploader">
+                <h1>
+                    Mapilio Kit Uploader
+                </h1>
+                <p>
+                    Image GPS and capture time are minimally required to upload images to Mapilio.
+                </p>
+            </div>
+            <div class="GUI_right_user_kitUploader dropdown">
+                <a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <img src="images/manCircleImg.svg" alt="">
+                    <div class="GUI_right_user_kitUploader_text d-flex flex-column align-items-start ml-2">
+                        <div>
+                            JonhDoe
+                        </div>
+                        <p class="text-primary">Organization</p>
+                    </div>
+                </a>
+                <div class="dropdown-menu w-100 mt-3">
+                    <a class="dropdown-item" href="#">
+                        <img src="images/manCircleImg.svg" alt="">
+                        John Doe
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <img src="images/wordCircle.svg" alt="">
+                        City Map Issue
+                    </a>
+                </div>
+            </div>
+            <div class="GUI_right_kitUploader_download">
+                <button onclick="document.getElementById('GUI_file').click()">
+                    <img src="images/uploadIcon.svg" alt="">
+                    <div class="upload_text">
+                        Drag & Drop files or <span>Browse</span>
+                    </div>
+                    <p>Input video path you want to process</p>
+                </button>
+                <input id="GUI_file" class="d-none" type="file">
+            </div>
+            <div class="GUI_right_kitUpload_fail">
+                <div class="GUI_right_kitUpload_fail_imgArea">
+                    <div>
+                        <img src="images/failIcon.svg" alt="">
+                        <span>This folder does not contain any Images or Video</span>
+                    </div>
+                    <button class="border-0 bg-transparent">
+                        <img src="images/xWhite.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="GUI GUI_section" style="display: none;">
+        <div class="GUI_left">
+            <div class="GUI_left_sections">
+                <a href="#">Upload</a>
+                <a href="#">About</a>
+                <a href="#">Help</a>
+            </div>
+            <div class="GUI_left_footer">
+                <div class="GUI_user dropdown dropup">
+                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <img src="images/manCircleImg.svg" alt="">
+                        John Doe
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">
+                            <img src="images/manCircleImg.svg" alt="">
+                            John Doe
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <img src="images/wordCircle.svg" alt="">
+                            City Map Issue
+                        </a>
+                        <!-- Logout Button -->
+                        <button class="dropdown-item logout-button" onclick="logout()">Logout</button>
+                    </div>
+                </div>
+                <img src="images/mapilioBetalogo.svg" alt="">
+                <p>© Mapilio. 2023. All rights reserved</p>
+            </div>
+        </div>
+        <div class="GUI_right">
+            <div class="GUI_right_uploadSucces">
+                <img src="images/thumbSucces.png" alt="">
+                <h2>
+                    Your images have been
+                    uploaded to Mapilio.
+                </h2>
+                <p>Your images will be processed to blur and license map data and automatically extract it. Once
+                    completed, they will be visible on Mapilio and you will receive
+                    a
+                    notification email.</p>
+
+                <button class="GUI_right_uploadSucces_Done">
+                    <p>Done</p>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="GUI GUI_section" style="display: none;">
+        <div class="GUI_left">
+            <div class="GUI_left_sections">
+                <a href="#">Upload</a>
+                <a href="#">About</a>
+                <a href="#">Help</a>
+            </div>
+            <div class="GUI_left_footer">
+                <div class="GUI_user dropdown dropup">
+                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <img src="images/manCircleImg.svg" alt="">
+                        John Doe
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">
+                            <img src="images/manCircleImg.svg" alt="">
+                            John Doe
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <img src="images/wordCircle.svg" alt="">
+                            City Map Issue
+                        </a>
+                        <!-- Logout Button -->
+                        <button class="dropdown-item logout-button" onclick="logout()">Logout</button>
+                    </div>
+                </div>
+                <img src="images/mapilioBetalogo.svg" alt="">
+                <p>© Mapilio. 2023. All rights reserved</p>
+            </div>
+        </div>
+        <div class="GUI_right">
+            <div class="GUI_right_uploadedImage">
+                <img src="images/uploadedImg.svg" alt="">
+                <h2>
+                    <img class="thumblue" src="images/thumbBlue.svg" alt="">
+                    Your images have been
+                    uploaded to Mapilio.
+                </h2>
+                <p>Your images will be processed to blur and license map data and automatically extract it. Once
+                    completed, they will be visible on Mapilio and you will receive
+                    a
+                    notification email.</p>
+
+                <button class="GUI_right_uploadSucces_Done">
+                    <p>Done</p>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="script/jquery.js"></script>
+<script src="bootstrap/bootstrap.bundle.js"></script>
+<script src="bootstrap/bootstrap.js"></script>
+<script src="script/script.js"></script>
+
+<script>
+
+      $(document).ready(function (){
+       var width = 755;
+    var height = 531;
+
+   // setTimeout(function (){
+ window.resizeTo(width, height);
+
+    console.log(((width), ((screen.height - height))/2))
+    window.moveTo((screen.width - width) / 2, ((screen.height - height))/2);
+
+  });
+window.addEventListener("resize", function(){
+      console.log(screen)
+     var width = 755;
+    var height = 531;
+
+   // setTimeout(function (){
+ window.resizeTo(width, height);
+
+    console.log(((width), ((screen.height - height))/2))
+    window.moveTo((screen.width - width) / 2, 100);
+
+    //},0)
+
+});
+</script>
+</body>
+
+</html>
